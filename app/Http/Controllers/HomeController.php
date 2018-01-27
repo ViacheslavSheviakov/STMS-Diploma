@@ -35,6 +35,10 @@ class HomeController extends Controller
         {
             $redirect = redirect()->route('home.student');
         }
+        else if($user->hasRole('mentor'))
+        {
+            $redirect = redirect()->route('home.mentor');
+        }
 
 
         return $redirect;

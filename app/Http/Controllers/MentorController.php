@@ -6,5 +6,9 @@ use Illuminate\Http\Request;
 
 class MentorController extends Controller
 {
-    // TODO: Create methods
+    public function index()
+    {
+        return view('mentor.home');
+    }
+
 }

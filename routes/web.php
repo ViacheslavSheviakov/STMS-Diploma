@@ -27,4 +27,5 @@ Route::post('/admin/user/save', 'AdminController@saveUser')->name('admin.user.sa
 // Student
 Route::get('/home/student', 'StudentController@index')->name('home.student');
 
-// TODO: Mentor
+// Mentor
+Route::get('/home/mentor', 'MentorController@index')->name('home.mentor');
