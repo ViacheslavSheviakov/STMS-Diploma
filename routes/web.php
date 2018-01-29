@@ -23,6 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/admin', 'AdminController@index')->name('home.admin');
 Route::get('/admin/user/new', 'AdminController@createUser')->name('admin.user.new');
 Route::post('/admin/user/save', 'AdminController@saveUser')->name('admin.user.save');
+Route::post('/admin/user/delete', 'AdminController@delUser')->name('admin.user.delete');
+Route::get('/admin/users/change', 'AdminController@changeUsers')->name('admin.users.change');
+Route::get('/admin/user/edit/{id}', 'AdminController@editUser')->name('admin.users.edit');
 
 // Student
 Route::get('/home/student', 'StudentController@index')->name('home.student');

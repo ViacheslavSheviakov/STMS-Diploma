@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <a href="{{ route('home.admin') }}" class="btn btn-default">Back</a>
+                <a href="{{ route('admin.users.change') }}" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i> Users Editing</a>
             </div>
         </div>
         <br>
@@ -44,7 +44,7 @@
                             {{ Form::label('u-type', 'Type:', ['class' => 'control-label']) }}
                             {{ Form::select('u-type', $roles->pluck('name', 'id' ), '', ['class' => 'form-control', 'data-parsley-required' => 'true']) }}
                         </div>
-                        {!! Form::submit('Create', ['class' => 'form-control btn-success']); !!}
+                        {!! Form::submit('Create', ['class' => 'btn btn-success form-spacing-top']); !!}
                         {!! Form::close() !!}
                     </div>
                 </div>

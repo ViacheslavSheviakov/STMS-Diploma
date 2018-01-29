@@ -2,31 +2,20 @@
 
 @role('admin')
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-2">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">Users</div>
+                    <div class="panel-heading"><i class="fa fa-bars" aria-hidden="true"></i> Control Panel</div>
 
                     <div class="panel-body">
-                        <a href="{{ route('admin.user.new') }}" class="btn btn-primary btn-block">New User</a>
-                        <a href="#" class="btn btn-primary btn-block">Delete</a>
-                        <a href="#" class="btn btn-primary btn-block">Edit</a>
+                        <a href="{{ route('admin.users.change') }}" class="btn btn-primary btn-block">Users Managing</a>
+                        <a href="#" class="btn btn-primary btn-block">Groups Managing</a>
+                        <a href="#" class="btn btn-primary btn-block">View Tasks</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Groups</div>
-
-                    <div class="panel-body">
-                        <a href="#" class="btn btn-primary btn-block">Create</a>
-                        <a href="#" class="btn btn-primary btn-block">Delete</a>
-                        <a href="#" class="btn btn-primary btn-block">Edit</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">Stats</div>
 

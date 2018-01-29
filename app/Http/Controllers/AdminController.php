@@ -32,7 +32,7 @@ class AdminController extends Controller
 
     public function saveUser(Request $request)
     {
-        $response = redirect()->route('home');
+        $response = redirect()->route('admin.users.change');
 
         $validator = Validator::make($request->all(), [
             'u-name'        => 'required',
@@ -61,4 +61,24 @@ class AdminController extends Controller
 
         return $response;
     }
+
+    public function changeUsers()
+    {
+        $users = User::paginate(5);
+
+        return view('admin.change-users')->with(['users' => $users]);
+    }
+
+    public function editUser($id)
+    {
+        $user = User::find($id);
+
+        return view('admin.edit-user')->with(['user' => $user]);
+    }
+
+    public function delUser()
+    {
+        return '';
+    }
+
 }
