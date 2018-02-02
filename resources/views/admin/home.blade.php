@@ -9,8 +9,8 @@
                     <div class="panel-heading"><i class="fa fa-bars" aria-hidden="true"></i> Control Panel</div>
 
                     <div class="panel-body">
-                        <a href="{{ route('admin.users.change') }}" class="btn btn-primary btn-block">Users Managing</a>
-                        <a href="#" class="btn btn-primary btn-block">Groups Managing</a>
+                        <a href="{{ route('admin.users.show') }}" class="btn btn-primary btn-block">Users Managing</a>
+                        <a href="{{ route('admin.groups.show') }}" class="btn btn-primary btn-block">Groups Managing</a>
                         <a href="#" class="btn btn-primary btn-block">View Tasks</a>
                     </div>
                 </div>

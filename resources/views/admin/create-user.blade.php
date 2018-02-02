@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <a href="{{ route('admin.users.change') }}" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i> Users Editing</a>
+                <a href="{{ route('admin.users.show') }}" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i> Users Editing</a>
             </div>
         </div>
         <br>
@@ -38,11 +38,11 @@
                         </div>
                         <div class="form-group">
                             {{ Form::label('u-group', 'Group:', ['class' => 'control-label']) }}
-                            {{ Form::select('u-group', collect([null => '-'])->merge($groups->pluck('short_title', 'id' )), '', ['class' => 'form-control']) }}
+                            {{ Form::select('u-group', collect([null => '-'])->merge($groups->pluck('short_title', 'short_title' )), '', ['class' => 'form-control']) }}
                         </div>
                         <div class="form-group">
                             {{ Form::label('u-type', 'Type:', ['class' => 'control-label']) }}
-                            {{ Form::select('u-type', $roles->pluck('name', 'id' ), '', ['class' => 'form-control', 'data-parsley-required' => 'true']) }}
+                            {{ Form::select('u-type', $roles->pluck('name', 'id'), '', ['class' => 'form-control', 'data-parsley-required' => 'true']) }}
                         </div>
                         {!! Form::submit('Create', ['class' => 'btn btn-success form-spacing-top']); !!}
                         {!! Form::close() !!}

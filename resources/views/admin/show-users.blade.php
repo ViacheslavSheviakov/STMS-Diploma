@@ -5,10 +5,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <h1><i class="fa fa-users" aria-hidden="true"></i> Users Editing</h1>
+                <h1><i class="fa fa-user-circle"></i> Users Editing</h1>
             </div>
             <div class="col-md-2">
-                <a href="{{ route('admin.user.new') }}" class="btn btn-success btn-block btn-h1-spacing">Create New</a>
+                <a href="{{ route('admin.user.new') }}" class="btn btn-success btn-block btn-h1-spacing"><i class="fa fa-user-plus"></i> Create New</a>
             </div>
             <div class="col-md-12">
                 <hr>
@@ -43,7 +43,7 @@
                                         <td>{{ $user->roles()->pluck('name')[0] }}</td>
                                         <td>
                                             <a href="{{ route('admin.users.edit', $user->id) }}"
-                                               class="btn btn-primary">Edit</a>
+                                               class="btn btn-primary"><i class="fa fa-edit"></i> Edit</a>
                                         </td>
                                     </tr>
                                 @endforeach
