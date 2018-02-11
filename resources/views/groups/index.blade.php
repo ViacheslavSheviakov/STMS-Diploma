@@ -31,7 +31,7 @@
 							<tbody>
 							@foreach($groups as $group)
 								<tr>
-									<td>{{ $group->id }}</td>
+									<td>{{ $group->group_id }}</td>
 									<td>{{ $group->short_title }}</td>
 									<td>{{ $group->full_title }}</td>
 									<td>

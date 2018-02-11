@@ -14,6 +14,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user = new User();
+
         $user->id         = 1;
         $user->name       = 'Admin';
         $user->surname    = 'Admin';
@@ -23,5 +24,71 @@ class UsersTableSeeder extends Seeder
         $user->save();
 
         $user->roles()->attach(Role::all()->where('name', 'admin')->first()->id);
+
+        $users = [
+            [
+                'surname'    => 'Ivanov',
+                'name'       => 'Ivan',
+                'patronymic' => 'Ivanovich',
+                'group'      => null,
+                'role'       => 'mentor'
+            ],
+            [
+                'surname'    => 'Pupkin',
+                'name'       => 'Vasiliy',
+                'patronymic' => 'Gregorievich',
+                'group'      => 1,
+                'role'       => 'student'
+            ],
+            [
+                'surname'    => 'Vonyavkin',
+                'name'       => 'Veniamin',
+                'patronymic' => 'Feliksovich',
+                'group'      => 1,
+                'role'       => 'student'
+            ],
+            [
+                'surname'    => 'Gavrilyuk',
+                'name'       => 'Mykhailo',
+                'patronymic' => 'Vikentiyevich',
+                'group'      => 1,
+                'role'       => 'student'
+            ],
+            [
+                'surname'    => 'Pitalev',
+                'name'       => 'Iliya',
+                'patronymic' => 'Andreevich',
+                'group'      => 1,
+                'role'       => 'student'
+            ],
+            [
+                'surname'    => 'Maksimov',
+                'name'       => 'Aleksey',
+                'patronymic' => 'Lavrentievich',
+                'group'      => 1,
+                'role'       => 'student'
+            ],
+        ];
+
+        foreach($users as $person)
+        {
+            self::fillUp($person);
+        }
+    }
+
+    protected function fillUp($data)
+    {
+        $user = new User();
+
+        $user->name       = $data['name'];
+        $user->surname    = $data['surname'];
+        $user->patronymic = $data['patronymic'];
+        $user->group_id   = $data['group'];
+        $user->email      = strtolower($data['name']).'.'.strtolower($data['surname']).'@ukr.net';
+        $user->password   = bcrypt('123456');
+
+        $user->save();
+
+        $user->roles()->attach(Role::all()->where('name', $data['role'])->first()->id);
     }
 }

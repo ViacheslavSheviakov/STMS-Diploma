@@ -13,4 +13,7 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
-    .copy('node_modules/font-awesome/fonts', 'public/fonts');
+   .copy('node_modules/font-awesome/fonts', 'public/fonts')
+   .copy('node_modules/alertify.js/dist/js/alertify.js', 'public/js')
+   .copy('node_modules/alertify.js/dist/js/ngAlertify.js', 'public/js')
+   .copy('node_modules/alertify.js/dist/css/alertify.css', 'public/css');

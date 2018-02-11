@@ -30,6 +30,11 @@ Route::get('/admin/mentor/attachment/{mentor}', 'AdminController@getMentorsAttac
 Route::post('/admin/mentor/attachment/store/{mentor}', 'AdminController@postMentorsAttachmentAdd')->name('admin.attachment.store');
 Route::post('/admin/mentor/attachment/rmove/{mentor}', 'AdminController@postMentorsAttachmentRemove')->name('admin.attachment.remove');
 
+// Mentor
+Route::get('/mentor/attach/{task}', 'MentorController@getAttachTask')->name('mentor.attach');
+Route::post('/mentor/attach/hole_group', 'MentorController@postHoleCreate')->name('mentor.hole_create');
+Route::post('/mentor/attach/hole_finish', 'MentorController@postHoleFinish')->name('mentor.hole_finish');
+
 Route::put('users/{user}/restore', 'UserController@restore')->name('users.restore');
 Route::resource('users', 'UserController');
 Route::resource('groups', 'GroupController');
