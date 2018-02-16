@@ -63,7 +63,7 @@
 								<td>{{ $group->full_title }}</td>
 								<td>
 									{!! Form::open(['route' => ['admin.attachment.remove', $data['id']], 'method' => 'POST']) !!}
-									{{ Form::hidden('group', $group->id)}}
+									{{ Form::hidden('group', $group->group_id)}}
 									{{ Form::button('<i class="fa fa-minus"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'])}}
 									{!! Form::close() !!}
 								</td>

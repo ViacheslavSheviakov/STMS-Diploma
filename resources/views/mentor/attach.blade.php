@@ -26,11 +26,22 @@
 									<td>
 										{!! Form::open([
 											'route'  => 'mentor.hole_create',
-											'method' => 'POST'
+											'method' => 'POST',
+											'style'  => 'display: inline-block;'
 										]) !!}
 										{{ Form::hidden('task_id', $task_id) }}
 										{{ Form::hidden('group_id', $group->group_id) }}
 										{{ Form::submit('All', ['class' => 'btn btn-primary']) }}
+										{!! Form::close() !!}
+
+										{!! Form::open([
+											'route'  => 'mentor.one',
+											'method' => 'POST',
+											'style'  => 'display: inline-block;'
+										]) !!}
+										{{ Form::hidden('task_id', $task_id) }}
+										{{ Form::hidden('group_id', $group->group_id) }}
+										{{ Form::submit('By one', ['class' => 'btn btn-primary']) }}
 										{!! Form::close() !!}
 									</td>
 								</tr>

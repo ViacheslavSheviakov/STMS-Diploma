@@ -7,6 +7,7 @@ use App\Role;
 use App\Task;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
@@ -28,7 +29,9 @@ class PagesController extends Controller
 
     public function getStudentIndex()
     {
-        return view('student.home');
+        $tasks = Auth::user()->task_lists;
+
+        return view('student.home')->withTasks($tasks);
     }
 
 }

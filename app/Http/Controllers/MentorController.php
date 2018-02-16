@@ -37,7 +37,7 @@ class MentorController extends Controller
 
         $data['group_id'] = $request->input('group_id');
         $data['task_id']  = $request->input('task_id');
-        $data['students'] = User::where('group_id', '=', $data['group_id'])->orderBy('surname', 'asc')->get();
+        $data['students'] = User::where('group_id', '=', $data['group_id'])->orderBy('surname', 'ascgit')->get();
 
         return view('mentor.hole_group')->withData($data);
     }
@@ -72,6 +72,60 @@ class MentorController extends Controller
         }
 
         Session::flash('success', 'The task was given to the group successfully!');
+
+        return redirect()->route('tasks.index');
+    }
+
+    public function postOne(Request $request)
+    {
+        $this->validate($request, [
+            'task_id'  => 'required',
+            'group_id' => 'required'
+        ]);
+
+        $data = [];
+
+        $data['group_id'] = $request->input('group_id');
+        $data['task_id']  = $request->input('task_id');
+        $data['students'] = User::where('group_id', '=', $data['group_id'])->orderBy('surname', 'ascgit')->get();
+
+        return view('mentor.one')->withData($data);
+    }
+
+    public function postOneStudent(Request $request)
+    {
+        $this->validate($request, [
+            'task_id'    => 'required',
+            'student_id' => 'required'
+        ]);
+
+        $data = [];
+
+        $data['task_id']    = $request->input('task_id');
+        $data['student_id'] = $request->input('student_id');
+
+        return view('mentor.one_student')->withData($data);
+    }
+
+    public function postOneFinish(Request $request)
+    {
+        $this->validate($request, [
+            'task_id'    => 'required',
+            'student_id' => 'required',
+            'deadline'   => 'required'
+        ]);
+
+        $new_task = new TaskList();
+
+        $new_task->task_id       = $request->input('task_id');
+        $new_task->doer_id       = $request->input('student_id');
+        $new_task->give_date     = \Carbon\Carbon::now();
+        $new_task->deadline_date = date($request->input('deadline'));
+        $new_task->status        = 1;
+
+        $new_task->save();
+
+        Session::flash('success', 'The task was given to the student successfully!');
 
         return redirect()->route('tasks.index');
     }

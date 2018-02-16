@@ -28,12 +28,15 @@ Route::get('/home/student', 'PagesController@getStudentIndex')->name('home.stude
 Route::get('/admin/mentor/attachment', 'AdminController@getMentorsAttachment')->name('admin.attachment');
 Route::get('/admin/mentor/attachment/{mentor}', 'AdminController@getMentorsAttachmentAdd')->name('admin.attachment.change');
 Route::post('/admin/mentor/attachment/store/{mentor}', 'AdminController@postMentorsAttachmentAdd')->name('admin.attachment.store');
-Route::post('/admin/mentor/attachment/rmove/{mentor}', 'AdminController@postMentorsAttachmentRemove')->name('admin.attachment.remove');
+Route::post('/admin/mentor/attachment/remove/{mentor}', 'AdminController@postMentorsAttachmentRemove')->name('admin.attachment.remove');
 
 // Mentor
 Route::get('/mentor/attach/{task}', 'MentorController@getAttachTask')->name('mentor.attach');
 Route::post('/mentor/attach/hole_group', 'MentorController@postHoleCreate')->name('mentor.hole_create');
 Route::post('/mentor/attach/hole_finish', 'MentorController@postHoleFinish')->name('mentor.hole_finish');
+Route::post('/mentor/attach/one', 'MentorController@postOne')->name('mentor.one');
+Route::post('/mentor/attach/one/student', 'MentorController@postOneStudent')->name('mentor.one_student');
+Route::post('/mentor/attach/one/finish', 'MentorController@postOneFinish')->name('mentor.one_finish');
 
 Route::put('users/{user}/restore', 'UserController@restore')->name('users.restore');
 Route::resource('users', 'UserController');
