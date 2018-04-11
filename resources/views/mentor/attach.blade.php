@@ -6,7 +6,7 @@
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Groups
+					<i class="fa fa-users" aria-hidden="true"></i> Groups
 				</div>
 				<div class="panel-body">
 					<div class="table-responsive">
@@ -15,6 +15,7 @@
 								<tr>
 									<th>ID</th>
 									<th>Short Title</th>
+									<th>Full title</th>
 									<th>Actions</th>
 								</tr>
 							</thead>
@@ -22,7 +23,8 @@
 								@foreach($groups as $group)
 								<tr>
 									<td>{{ $group->group_id }}</td>
-									<td>{{ $group->short_title}}</td>
+									<td>{{ $group->short_title }}</td>
+									<td>{{ $group->full_title }}</td>
 									<td>
 										{!! Form::open([
 											'route'  => 'mentor.hole_create',

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReportsTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateReportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('task_list_id')->unsigned();
-            $table->string('contents');
-            $table->string('file')->nullable();
-
-            $table->foreign('task_list_id')->references('id')->on('task_lists');
+            $table->string('title');
+            $table->mediumText('content');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +28,6 @@ class CreateReportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('comments');
     }
 }

@@ -23,6 +23,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/admin', 'PagesController@getAdminIndex')->name('home.admin');
 Route::get('/home/mentor', 'PagesController@getMentorIndex')->name('home.mentor');
 Route::get('/home/student', 'PagesController@getStudentIndex')->name('home.student');
+Route::get('/user/data/edit', 'PagesController@getUserEdit')->name('user.edit');
+Route::post('/user/data/edit/save', 'PagesController@getUserEditSave')->name('auth.edit');
+Route::post('/user/data/password/save', 'PagesController@getUserPasswordSave')->name('auth.pswd.edit');
+Route::get('/file/download/{report}', 'PagesController@getFile')->name('file.download');
 
 // Admin
 Route::get('/admin/mentor/attachment', 'AdminController@getMentorsAttachment')->name('admin.attachment');
@@ -37,6 +41,15 @@ Route::post('/mentor/attach/hole_finish', 'MentorController@postHoleFinish')->na
 Route::post('/mentor/attach/one', 'MentorController@postOne')->name('mentor.one');
 Route::post('/mentor/attach/one/student', 'MentorController@postOneStudent')->name('mentor.one_student');
 Route::post('/mentor/attach/one/finish', 'MentorController@postOneFinish')->name('mentor.one_finish');
+Route::get('/mentor/reports', 'MentorController@getReports')->name('mentor.reports');
+Route::get('/mentor/reports/finished', 'MentorController@getFinished')->name('mentor.finished');
+Route::get('/mentor/report/{id}', 'MentorController@getCheckReport')->name('report.check');
+Route::get('/mentor/report/finished/{id}', 'MentorController@getCheckFinished')->name('report.finished');
+Route::get('/mentor/report/apply/{id}/{status}', 'MentorController@getApplyStatus')->name('report.apply');
+
+// Student
+Route::post('/student/report', 'StudentController@postTask')->name('student.task_info');
+Route::post('/student/report/save', 'StudentController@postReportSave')->name('student.report');
 
 Route::put('users/{user}/restore', 'UserController@restore')->name('users.restore');
 Route::resource('users', 'UserController');

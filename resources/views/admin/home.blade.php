@@ -19,20 +19,11 @@
 				<div class="panel-heading">Stats</div>
 
 				<div class="panel-body">
-					<table class="table table-bordered">
-						<tr>
-							<td>Total users count</td>
-							<td>{{ $stats['users_count'] }}</td>
-						</tr>
-						<tr>
-							<td>Total groups count</td>
-							<td>{{ $stats['groups_count'] }}</td>
-						</tr>
-						<tr>
-							<td>Total tasks count</td>
-							<td>{{ $stats['tasks_count'] }}</td>
-						</tr>
-					</table>
+					<ul class="list-group">
+						<li class="list-group-item">Total users count <span class="badge">{{ $stats['users_count'] }}</span></li>
+						<li class="list-group-item">Total groups count <span class="badge">{{ $stats['groups_count'] }}</span></li>
+						<li class="list-group-item">Total tasks count <span class="badge">{{ $stats['tasks_count'] }}</span></li>
+					</ul>
 				</div>
 			</div>
 		</div>

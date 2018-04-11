@@ -42,7 +42,10 @@
 				<div class="collapse navbar-collapse" id="app-navbar-collapse">
 					<!-- Left Side Of Navbar -->
 					<ul class="nav navbar-nav">
-						&nbsp;<li class="{{ Request::is('home/*') == 1 ? 'active' : null }}"><a href="{{ route('home') }}">Home</a></li>
+						@guest
+						@else
+						&nbsp;<li class="{{ Request::is('home/*') == 1 ? 'active' : null }}"><a href="{{ route('home') }}"> <i class="fa fa-home"></i> Home</a></li>
+						@endguest
 					</ul>
 
 					<!-- Right Side Of Navbar -->
@@ -57,11 +60,12 @@
 								</a>
 
 								<ul class="dropdown-menu">
+									<li><a href="{{ route('user.edit') }}"><i class="fa fa-cog"></i> Settings</a></li>
 									<li>
 										<a href="{{ route('logout') }}"
 											onclick="event.preventDefault();
 													 document.getElementById('logout-form').submit();">
-											Logout
+											<i class="fa fa-sign-out"></i> Logout
 										</a>
 
 										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

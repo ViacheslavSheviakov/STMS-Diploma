@@ -17,12 +17,14 @@ class CreateTaskListsTable extends Migration
             $table->increments('id');
             $table->integer('task_id')->unsigned();
             $table->integer('doer_id')->unsigned();
+            $table->integer('comment_id')->unsigned()->nullable();
             $table->date('give_date');
             $table->date('deadline_date');
             $table->integer('status');
 
             $table->foreign('task_id')->references('id')->on('tasks');
             $table->foreign('doer_id')->references('id')->on('users');
+            $table->foreign('comment_id')->references('id')->on('comments');
         });
     }
 

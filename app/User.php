@@ -15,35 +15,45 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
  */
 class User extends Authenticatable
 {
-    use Notifiable;
-    use EntrustUserTrait;
+	use Notifiable;
+	use EntrustUserTrait;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+	/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
+	protected $fillable = [
+		'name', 'email', 'password',
+	];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+	/**
+	 * The attributes that should be hidden for arrays.
+	 *
+	 * @var array
+	 */
+	protected $hidden = [
+		'password', 'remember_token',
+	];
 
-    public function groups()
-    {
-        return $this->belongsToMany('App\Group', 'user_group', 'user_id', 'group_id');
-    }
+	public function groups()
+	{
+		return $this->belongsToMany('App\Group', 'user_group', 'user_id', 'group_id');
+	}
 
-    public function task_lists()
-    {
-        return $this->hasMany('App\TaskList', 'doer_id');
-    }
+	public function group()
+	{
+		return $this->belongsTo('App\Group', 'group_id', 'group_id');
+	}
+
+	public function task_lists()
+	{
+		return $this->hasMany('App\TaskList', 'doer_id');
+	}
+
+	public function tasks()
+	{
+		return $this->hasMany('App\Task', 'creator_id');
+	}
 
 }
