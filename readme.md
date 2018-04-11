@@ -18,3 +18,11 @@ The system will use Telegram API to provide a various types of control actions b
 Laravel framework was used for the back-end development.
 Also, Bootstrap was used as a CSS-framework for building a proper UI.
 Some JS-libs such as jQuery were used as well.
+
+## Dream Team Members
+
+- <a href="https://github.com/ViacheslavSheviakov">Sheviakov Viacheslav</a> (Team lead, Back-end developer)
+- <a href="https://github.com/yaroslav-ost">Mokliak Yaroslav</a> (Business Analytic)
+- <a href="https://github.com/Scumble">Chan Than` Nam</a> (Project Manager, Front-end developer)
+- <a href="https://github.com/scorpion1011">Nesterenko Vladislav</a> (Bot API developer)
+- <a href="https://github.com/Rozdolbai">Valuiskii Vladislav</a> (QA manager)
