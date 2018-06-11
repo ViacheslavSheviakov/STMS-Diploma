@@ -60,6 +60,10 @@
 							<th>Role:</th>
 							<td>{{ $data['role'] }}</td>
 						</tr>
+						<tr>
+							<th>Chat ID:</th>
+							<td>{{ $data['user']->chat_id }}</td>
+						</tr>
 						</tbody>
 					</table>
 					<a href="{{ route('users.edit', $data['user']->id) }}" class="btn btn-primary">Edit</a>

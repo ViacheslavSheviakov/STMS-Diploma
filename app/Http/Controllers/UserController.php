@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
+use THelp;
+
 class UserController extends Controller
 {
     /**
@@ -76,9 +78,18 @@ class UserController extends Controller
             }
 
             $user->password = bcrypt('123456');
+
+            if ($request->input('t-token') != null)
+            {
+                $user->chat_id = $request->input('t-token');
+            }
+
             $user->save();
 
-            $user->roles()->attach(Role::all()->where('id', $request->input('u-type'))->first()->id);
+            $rrole = Role::all()->where('id', $request->input('u-type'))->first();
+            $user->roles()->attach($rrole->id);
+
+            THelp::send_message($user->id, "You were signed up as *" . $rrole->name . "*");
 
             Session::flash('success', 'A new user was successfully created!');
         }
@@ -176,6 +187,11 @@ class UserController extends Controller
             $role = Role::find($request->input('a-roles'));
             $user->detachRoles($user->roles);
             $user->attachRole($role);
+
+            if ($request->input('t-token') != null)
+            {
+                $user->chat_id = $request->input('t-token');
+            }
 
             $user->save();
 

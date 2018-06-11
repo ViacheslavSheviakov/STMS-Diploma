@@ -43,6 +43,10 @@
 						{{ Form::label('u-type', 'Type:', ['class' => 'control-label']) }}
 						{{ Form::select('u-type', $data['roles'], '', ['class' => 'form-control', 'data-parsley-required' => 'true']) }}
 					</div>
+					<div class="form-group">
+						{{ Form::label('t-token', 'Chat ID:') }}
+						{{ Form::text('t-token', null, ['class' => 'form-control']) }}
+					</div>
 					{!! Form::submit('Create', ['class' => 'btn btn-success form-spacing-top']); !!}
 					{!! Form::close() !!}
 				</div>

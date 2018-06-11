@@ -63,6 +63,9 @@
 
 					{{ Form::label('a-roles', 'Role:') }}
 					{{ Form::select('a-roles', $data['roles'], '' , ['class' => 'form-control', 'data-parsley-required' => 'true']) }}
+					
+					{{ Form::label('t-token', 'Chat ID:') }}
+					{{ Form::text('t-token', $data['user']->chat_id, ['class' => 'form-control']) }}
 					<hr>
 					{{ Form::submit('Save', ['class' => 'btn btn-primary']) }}
 					{!! Form::close() !!}

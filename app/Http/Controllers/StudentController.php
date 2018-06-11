@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\TaskList;
+use App\Task;
 use App\Report;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+
+use THelp;
 
 class StudentController extends Controller
 {
@@ -64,6 +67,9 @@ class StudentController extends Controller
         $report->contents     = $request->input('content');
 
         $report->save();
+
+        $message = THelp::prepare_report(Auth::user()->id, $request->input('tasklist_id'), $request->input('content'));
+        THelp::send_message(Task::find($tasklist->task_id)->creator_id, $message);
 
         Session::flash('info', 'Report was sent!');
 
