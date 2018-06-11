@@ -34,11 +34,12 @@ class UsersTableSeeder extends Seeder
                 'role'       => 'mentor'
             ],
             [
-                'surname'    => 'Pupkin',
-                'name'       => 'Vasiliy',
-                'patronymic' => 'Gregorievich',
+                'surname'    => 'Viacheslav',
+                'name'       => 'Sheviakov',
+                'patronymic' => 'Igorevich',
                 'group'      => 1,
-                'role'       => 'student'
+                'role'       => 'student',
+                'chat_id'    => '280739345'
             ],
             [
                 'surname'    => 'Vonyavkin',
@@ -86,6 +87,7 @@ class UsersTableSeeder extends Seeder
         $user->group_id   = $data['group'];
         $user->email      = strtolower($data['name']).'.'.strtolower($data['surname']).'@ukr.net';
         $user->password   = bcrypt('123456');
+        $user->chat_id    = isset($data['chat_id']) ? $data['chat_id'] : null;
 
         $user->save();
 

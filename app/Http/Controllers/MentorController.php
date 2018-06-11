@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
+use THelp;
+
 class MentorController extends Controller
 {
 	public function index()
@@ -126,6 +128,9 @@ class MentorController extends Controller
 		$new_task->status        = 1;
 
 		$new_task->save();
+
+		$message = THelp::prepare_task(Auth::user()->id, $request->input('task_id'), $request->input('deadline'));
+		THelp::send_message($request->input('student_id'), $message);
 
 		Session::flash('success', 'The task was given to the student successfully!');
 

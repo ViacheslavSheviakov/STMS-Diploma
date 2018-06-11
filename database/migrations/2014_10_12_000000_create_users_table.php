@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->integer('group_id')->unsigned()->nullable();
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('chat_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
