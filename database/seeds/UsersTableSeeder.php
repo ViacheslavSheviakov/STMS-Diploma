@@ -42,11 +42,12 @@ class UsersTableSeeder extends Seeder
                 'chat_id'    => '280739345'
             ],
             [
-                'surname'    => 'Vonyavkin',
-                'name'       => 'Veniamin',
-                'patronymic' => 'Feliksovich',
+                'surname'    => 'Valuyskiy',
+                'name'       => 'Vladislav',
+                'patronymic' => 'Evgenievich',
                 'group'      => 1,
-                'role'       => 'student'
+                'role'       => 'student',
+                'chat_id'    => '348939131'
             ],
             [
                 'surname'    => 'Gavrilyuk',
@@ -56,11 +57,12 @@ class UsersTableSeeder extends Seeder
                 'role'       => 'student'
             ],
             [
-                'surname'    => 'Pitalev',
-                'name'       => 'Iliya',
-                'patronymic' => 'Andreevich',
+                'surname'    => 'Moklyak',
+                'name'       => 'Yaroslav',
+                'patronymic' => 'Batkovich',
                 'group'      => 1,
-                'role'       => 'student'
+                'role'       => 'student',
+                'chat_id'    => '291382399'
             ],
             [
                 'surname'    => 'Maksimov',

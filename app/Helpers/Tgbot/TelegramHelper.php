@@ -48,4 +48,10 @@ class TelegramHelper
         return $string;
     }
 
+    public static function format_date($date)
+    {
+        $date_c = date('d.m.y', strtotime($date));
+        return $date_c;
+    }
+
 }

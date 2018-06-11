@@ -73,6 +73,11 @@ class MentorController extends Controller
 			$new_task->status        = 1;
 
 			$new_task->save();
+
+			$message = THelp::prepare_task(
+				Auth::user()->id, $task_id,
+				THelp::format_date($deadline));
+			THelp::send_message($student->id, $message);
 		}
 
 		Session::flash('success', 'The task was given to the group successfully!');
@@ -129,7 +134,9 @@ class MentorController extends Controller
 
 		$new_task->save();
 
-		$message = THelp::prepare_task(Auth::user()->id, $request->input('task_id'), $request->input('deadline'));
+		$message = THelp::prepare_task(
+			Auth::user()->id, $request->input('task_id'),
+			THelp::format_date($request->input('deadline')));
 		THelp::send_message($request->input('student_id'), $message);
 
 		Session::flash('success', 'The task was given to the student successfully!');
