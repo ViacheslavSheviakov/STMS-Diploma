@@ -3,6 +3,7 @@ This project represents the system that will be used as a time manager for the u
 ## About STMS (Students' Time Management System)
 
 The system supports 3 main types of users:
+
 - administrators
 - mentors
 - students
@@ -21,8 +22,10 @@ Some JS-libs such as jQuery were used as well.
 
 ## Dream Team Members
 
-- <a href="https://github.com/ViacheslavSheviakov">Sheviakov Viacheslav</a> (Team lead, Back-end developer)
-- <a href="https://github.com/yaroslav-ost">Mokliak Yaroslav</a> (Business Analytic)
-- <a href="https://github.com/Scumble">Chan Than` Nam</a> (Project Manager, Front-end developer)
-- <a href="https://github.com/scorpion1011">Nesterenko Vladislav</a> (Bot API developer)
-- <a href="https://github.com/Rozdolbai">Valuiskii Vladislav</a> (QA manager)
+- <a href="https://github.com/ViacheslavSheviakov">Sheviakov Viacheslav</a> (Team lead, Developer)
+- <a href="https://github.com/yaroslav-ost">Mokliak Yaroslav</a> (Business Analyst)
+- <a href="https://github.com/Scumble">Chan Than` Nam</a> (Developer)
+- <a href="https://github.com/scorpion1011">Nesterenko Vladislav</a> (Developer)
+- <a href="https://github.com/Rozdolbai">Valuiskii Vladislav</a> (Developer)
+- <a href="#">Ighor Korotach</a> (QA Manager)
+- <a href="#">Ann Kolosova</a> (Scrum Master)
