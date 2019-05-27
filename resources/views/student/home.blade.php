@@ -46,6 +46,7 @@
 				<div class="panel-body">
 					<ul class="list-group">
 						<li class="list-group-item">All <span class="badge">{{ $data['count'] }}</span></li>
+						<li class="list-group-item">In Progress <span class="badge">{{ $data['in_progress'] }}</span></li>
 						<li class="list-group-item">Checking <span class="badge">{{ $data['checking'] }}</span></li>
 						<li class="list-group-item">Expired <span class="badge">{{ $data['expired'] }}</span></li>
 						<li class="list-group-item">Completed <span class="badge">{{ $data['completed'] }}</span></li>

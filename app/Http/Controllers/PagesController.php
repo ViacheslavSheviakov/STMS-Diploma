@@ -42,6 +42,7 @@ class PagesController extends Controller
 
         $data['count']     = $tasks->count();
         $data['checking']  = $tasks->where('status', '=', 0)->count();
+        $data['in_progress']  = $tasks->where('status', '=', 1)->count();
         $data['expired']   = $tasks->where('status', '=', 2)->count();
         $data['completed'] = $tasks->where('status', '=', 3)->count();
 
