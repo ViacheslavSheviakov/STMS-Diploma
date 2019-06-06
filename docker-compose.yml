@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    image: composer:latest
+    volumes:
+      - ".:/app"
+    ports:
+      - "8000:8000"
+    command: /bin/bash -c "composer install && php artisan key:generate && php artisan migrate && php artisan serve --host 0.0.0.0"
